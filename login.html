@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Daily Ease</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #e3f2fd;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .container img {
+      display: block;
+      width: 60px;
+      margin: 0 auto 1rem;
+    }
+
+    input, select, button {
+      width: 100%;
+      margin: 0.8rem 0;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1565c0;
+    }
+
+    .link-text {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .link-text a {
+      color: #1976d2;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .link-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="https://img.icons8.com/ios-filled/100/heart-health.png" alt="Logo" />
+    <h2>Login to Daily Ease</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <select id="role" required>
+        <option value="">Select your role</option>
+        <option value="user">User</option>
+        <option value="caregiver">Caregiver</option>
+      </select>
+      <button type="submit">Login</button>
+      <div class="link-text">
+        Don't have an account? <a href="signup.html">Sign up</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const role = document.getElementById('role').value;
+
+      if (!email || !password || !role) {
+        alert("Please fill all fields");
+        return;
+      }
+
+      if (role === 'caregiver') {
+        window.location.href = 'caregiver.html';
+      } else {
+        window.location.href = 'user.html';
+      }
+    });
+  </script>
+</body>
+</html>
